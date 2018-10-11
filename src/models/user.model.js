@@ -12,9 +12,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
     },
     birthdate: {
-        type: Date,
+        type: String,
     },
-    sign: {
+    starSign: {
+        type: String,
+    },
+    description: {
         type: String,
     }
 })

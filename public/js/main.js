@@ -15,50 +15,23 @@ function getM() {
 }
 
 function findingSign() {
-    let day = getD()
     let month = getM()
-    let date = `${month}${day}`
-    console.log(day)
     console.log(month)
-    console.log(date)
-    //Aries
-    if ((date >= 321) && (date <= 419)) {
-        return 1
-    } else if ((date >= 420) && (date <= 520)) {
-        return 2
-    } else if ((date >= 521) && (date <= 620)) {
-        return 3
-    } else if ((date >= 621) && (date <= 722)) {
-        return 4
-    } else if ((date >= 723) && (date <= 822)) {
-        return 5
-    } else if ((date >= 823) && (date <= 922)) {
-        return 6
-    } else if ((date >= 923) && (date <= 1022)) {
-        return 7
-    } else if ((date >= 1023) && (date <= 1121)) {
-        return 8
-    } else if ((date >= 1122) && (date <= 1221)) {
-        return 9
-    } else if ((date >= 120) && (date <= 218)) {
-        return 11
-    } else if ((date >= 219) && (date <= 320)) {
-        return 12
-    } else {
-        return 10
-    }
+
+    return month
 }
 
 function getSign() {
     let xhr = new XMLHttpRequest()
     let method = 'GET'
-    let url = `http://localhost:3000/signs/${findingSign()}`
+    let url = `http://localhost:3000/signo/${findingSign()}`
 
     xhr.open(method, url, true)
     xhr.send()
 
     console.log(xhr)
-    console.log(xhr.response)
+    console.log("stringfy: " + JSON.stringify(xhr))
+    console.log("responseText: " + xhr.responseText)
     // console.log(JSON.parse(xhr.responseText))
 }
 
@@ -92,5 +65,5 @@ function submitForm(e) {
 
     console.log(name.value, birthdate.value)
     getSign()
-    postUser()
+    // postUser()
 }
