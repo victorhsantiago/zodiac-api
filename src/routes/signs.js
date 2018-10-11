@@ -17,6 +17,8 @@ const signs = [
     { id: 12, starSign: 'Capricorn', description: "Capricorn is a sign that represents time and responsibility, and its representatives are traditional and often very serious by nature. These individuals possess an inner state of independence that enables significant progress both in their personal and professional lives. They are masters of self-control and have the ability to lead the way, make solid and realistic plans, and manage many people who work for them at any time. They will learn from their mistakes and get to the top based solely on their experience and expertise." }
 ]
 
+//QueryString => query property on the request object
+//http://localhost:3000/signo?name=betty&birthdate=22-03-2001
 router.get('/signo', (req, res) => {
     if (req.query.name && req.query.birthdate) {
 
@@ -35,9 +37,6 @@ router.get('/signo', (req, res) => {
     } else {
         res.send('Insuficent params to execute the query. Please, be sure to have the name and birthdate on it. E.g: http://localhost:3000/signo?name=jonh&birthdate=22-03-2001')
     }
-
-    // const sign = signs.find(s => s.id === parseInt(req.params.id))
-
 })
 //Params property on the request object
 //localhost:3000/sign/1
