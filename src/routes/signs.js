@@ -21,14 +21,44 @@ const signs = [
 //http://localhost:3000/signo?name=Betty&birthdate=22-03-2001
 router.get('/signo', (req, res) => {
     if (req.query.name && req.query.birthdate) {
-        let array = req.query.birthdate.split('-')
-        let s = parseInt(array[1]) - 1
+        let date = req.query.birthdate.split('-')
+        let signCode = date[1] + date[0]
+
+        function getSign() {
+            if (signCode >= 120 && signCode <= 218) {
+                return s = 0
+            } else if (signCode >= 219 && signCode <= 320) {
+                return s = 1
+            } else if (signCode >= 321 && signCode <= 419) {
+                return s = 2
+            } else if (signCode >= 420 && signCode <= 520) {
+                return s = 3
+            } else if (signCode >= 521 && signCode <= 620) {
+                return s = 4
+            } else if (signCode >= 621 && signCode <= 722) {
+                return s = 5
+            } else if (signCode >= 723 && signCode <= 822) {
+                return s = 6
+            } else if (signCode >= 823 && signCode <= 922) {
+                return s = 7
+            } else if (signCode >= 923 && signCode <= 1022) {
+                return s = 8
+            } else if (signCode >= 1023 && signCode <= 1121) {
+                return s = 9
+            } else if (signCode >= 1122 && signCode <= 1221) {
+                return s = 10
+            } else {
+                return s = 11
+            }
+        }
+
+        let i = getSign()
 
         let data = {
             name: req.query.name,
             birthdate: req.query.birthdate,
-            starSign: signs[s].starSign,
-            description: signs[s].description
+            starSign: signs[i].starSign,
+            description: signs[i].description
         }
 
         let model = new UserModel(data)
