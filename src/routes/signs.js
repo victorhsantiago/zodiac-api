@@ -18,10 +18,9 @@ const signs = [
 ]
 
 //QueryString => query property on the request object
-//http://localhost:3000/signo?name=betty&birthdate=22-03-2001
+//http://localhost:3000/signo?name=Betty&birthdate=22-03-2001
 router.get('/signo', (req, res) => {
     if (req.query.name && req.query.birthdate) {
-
         let array = req.query.birthdate.split('-')
         let s = parseInt(array[1]) - 1
 
@@ -31,8 +30,10 @@ router.get('/signo', (req, res) => {
             starSign: signs[s].starSign,
             description: signs[s].description
         }
+
         let model = new UserModel(data)
         model.save()
+
         res.send(data)
     } else {
         res.send('Insuficent params to execute the query. Please, be sure to have the name and birthdate on it. E.g: http://localhost:3000/signo?name=jonh&birthdate=22-03-2001')
@@ -40,16 +41,10 @@ router.get('/signo', (req, res) => {
 })
 //Params property on the request object
 //localhost:3000/sign/1
-router.get('/signo/:id', (req, res) => {
-    const sign = signs.find(s => s.id === parseInt(req.params.id))
-
-
-
-
-
-    if (!sign) res.status(404).send('The sign was not found.')//404
-    res.send(sign)
-})
-
+// router.get('/signo/:id', (req, res) => {
+//     const sign = signs.find(s => s.id === parseInt(req.params.id))
+//     if (!sign) res.status(404).send('The sign was not found.')//404
+//     res.send(sign)
+// })
 
 module.exports = router

@@ -1,10 +1,11 @@
 const express = require('express')
 const signsRoute = require('./routes/signs')
 const userRoute = require('./routes/user')
-const app = express()
 const path = require('path')
 const bodyParser = require('body-parser')
 const dateParser = require('express-query-date')
+
+const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
