@@ -36,15 +36,15 @@ router.get('/signo', (req, res) => {
 
         res.send(data)
     } else {
-        res.send('Insuficent params to execute the query. Please, be sure to have the name and birthdate on it. E.g: http://localhost:3000/signo?name=jonh&birthdate=22-03-2001')
+        res.send('Insufficient params to execute the query. Please, be sure to have the name and birthdate on it. E.g: http://localhost:3000/signo?name=jonh&birthdate=22-03-2001')
     }
 })
-//Params property on the request object
-//localhost:3000/sign/1
-// router.get('/signo/:id', (req, res) => {
-//     const sign = signs.find(s => s.id === parseInt(req.params.id))
-//     if (!sign) res.status(404).send('The sign was not found.')//404
-//     res.send(sign)
-// })
+// Params property on the request object
+// localhost:3000/signp/1
+router.get('/signo/:id', (req, res) => {
+    const sign = signs.find(s => s.id === parseInt(req.params.id))
+    if (!sign) res.status(404).send('The sign was not found.')//404
+    res.send(sign)
+})
 
 module.exports = router

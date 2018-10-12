@@ -18,10 +18,17 @@
             <span>Find here your zodiac sign</span>
             <input type="text" id="name" placeholder="Enter your name..." autofocus required>
             <input type="date" id="date" required>
-            <button type="submit" id="button">Find out!</button>
+            <button type="submit" id="btn">Find out!</button>
         </form>
     </div>
 
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <h3 id="modal-header">Your sign is: <span id="signo"></span></h3>
+            <p id="description"></p>
+        </div>
+    </div>
     <script src="js/main.js"></script>
 </body>
 
