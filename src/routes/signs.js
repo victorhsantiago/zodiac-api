@@ -22,7 +22,8 @@ const signs = [
 router.get('/signo', (req, res) => {
     if (req.query.name && req.query.birthdate) {
         let date = req.query.birthdate.split('-')
-        let signCode = date[1] + date[0]
+        let signCode = parseInt(date[1] + date[0])
+        console.log(signCode)
 
         switch (signCode) {
             case (signCode >= 120 && signCode <= 218):
