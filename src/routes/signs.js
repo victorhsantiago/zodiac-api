@@ -24,35 +24,74 @@ router.get('/signo', (req, res) => {
         let date = req.query.birthdate.split('-')
         let signCode = date[1] + date[0]
 
-        function getSign() {
-            if (signCode >= 120 && signCode <= 218) {
-                return s = 0
-            } else if (signCode >= 219 && signCode <= 320) {
-                return s = 1
-            } else if (signCode >= 321 && signCode <= 419) {
-                return s = 2
-            } else if (signCode >= 420 && signCode <= 520) {
-                return s = 3
-            } else if (signCode >= 521 && signCode <= 620) {
-                return s = 4
-            } else if (signCode >= 621 && signCode <= 722) {
-                return s = 5
-            } else if (signCode >= 723 && signCode <= 822) {
-                return s = 6
-            } else if (signCode >= 823 && signCode <= 922) {
-                return s = 7
-            } else if (signCode >= 923 && signCode <= 1022) {
-                return s = 8
-            } else if (signCode >= 1023 && signCode <= 1121) {
-                return s = 9
-            } else if (signCode >= 1122 && signCode <= 1221) {
-                return s = 10
-            } else {
-                return s = 11
-            }
+        switch (signCode) {
+            case (signCode >= 120 && signCode <= 218):
+                i = 0
+                break
+            case (signCode >= 219 && signCode <= 320):
+                i = 1
+                break
+            case (signCode >= 321 && signCode <= 419):
+                i = 2
+                break
+            case (signCode >= 420 && signCode <= 520):
+                i = 3
+                break
+            case (signCode >= 521 && signCode <= 620):
+                i = 4
+                break
+            case (signCode >= 621 && signCode <= 722):
+                i = 5
+                break
+            case (signCode >= 723 && signCode <= 822):
+                i = 6
+                break
+            case (signCode >= 823 && signCode <= 922):
+                i = 7
+                break
+            case (signCode >= 923 && signCode <= 1022):
+                i = 8
+                break
+            case (signCode >= 1023 && signCode <= 1121):
+                i = 9
+                break
+            case (signCode >= 1122 && signCode <= 1221):
+                i = 10
+                break
+            default:
+                i = 11
+                break
+
         }
 
-        let i = getSign()
+        // function getSign(signCode) {
+        //     if (signCode >= 120 && signCode <= 218) {
+        //         return s = 0
+        //     } else if (signCode >= 219 && signCode <= 320) {
+        //         return s = 1
+        //     } else if (signCode >= 321 && signCode <= 419) {
+        //         return s = 2
+        //     } else if (signCode >= 420 && signCode <= 520) {
+        //         return s = 3
+        //     } else if (signCode >= 521 && signCode <= 620) {
+        //         return s = 4
+        //     } else if (signCode >= 621 && signCode <= 722) {
+        //         return s = 5
+        //     } else if (signCode >= 723 && signCode <= 822) {
+        //         return s = 6
+        //     } else if (signCode >= 823 && signCode <= 922) {
+        //         return s = 7
+        //     } else if (signCode >= 923 && signCode <= 1022) {
+        //         return s = 8
+        //     } else if (signCode >= 1023 && signCode <= 1121) {
+        //         return s = 9
+        //     } else if (signCode >= 1122 && signCode <= 1221) {
+        //         return s = 10
+        //     } else {
+        //         return s = 11
+        //     }
+        // }
+
 
         let data = {
             name: req.query.name,

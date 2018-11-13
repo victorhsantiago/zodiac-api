@@ -35,4 +35,4 @@ app.use((err, req, res, next) => {
     res.sendFile(path.join(__dirname, '../public/500.html'))
 })
 const PORT = process.env.PORT || 3000
-app.listen(PORT, () => console.log(`Server has started on port ${PORT}`))
+app.listen(3000, () => console.log(`Server has started on port 3000`))
